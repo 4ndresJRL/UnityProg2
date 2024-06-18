@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Movimiento3D : MonoBehaviour
 {
-    private CharacterController ctrl;
+    private CharacterController control;
     private float movX;
     private float movZ;
-    private Vector3 movi;
+    private Vector3 movimiento;
 
-    [SerializeField] private float vel;
-    [SerializeField] private float velJump;
+    [SerializeField] private float velocidad;
+    [SerializeField] private float velSalto;
 
     private Vector3 velY;
     [SerializeField] private float gravedad = -9.8f;
@@ -24,20 +24,34 @@ public class Movimiento3D : MonoBehaviour
 
     private void Start()
     {
-        ctrl = GetComponent<CharacterController>();
+        control = GetComponent<CharacterController>();
 
     }
 
     private void Update()
     {
-        isGrounded = Physics.CheckSphere(groundCheck.position, radius, groundMask);
+        Ground();
+        Movimiento();
+        Salto();
 
+    }
+
+    private void Movimiento()
+    {
         movX = Input.GetAxis("Horizontal");
         movZ = Input.GetAxis("Vertical");
 
-        movi = transform.right * movX + transform.forward * movZ;
-        ctrl.Move(movi * vel * Time.deltaTime);
+        movimiento = transform.right * movX + transform.forward * movZ;
+        control.Move(movimiento * velocidad * Time.deltaTime);
+    }
 
+    private void Ground()
+    {
+        isGrounded = Physics.CheckSphere(groundCheck.position, radius, groundMask);
+    }
+
+    private void Salto()
+    {
         if (isGrounded && velY.y < 0)
         {
             velY.y = 0;
@@ -45,10 +59,10 @@ public class Movimiento3D : MonoBehaviour
 
         if (Input.GetButton("Jump") && isGrounded)
         {
-            velY.y = Mathf.Sqrt(velJump * -2 * gravedad);
+            velY.y = Mathf.Sqrt(velSalto * -2 * gravedad);
         }
 
         velY.y += gravedad * Time.deltaTime;
-        ctrl.Move(velY * Time.deltaTime);
+        control.Move(velY * Time.deltaTime);
     }
 }

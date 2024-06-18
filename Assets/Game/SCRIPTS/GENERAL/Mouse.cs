@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class Mouse : MonoBehaviour
 {
-    private float musX;
-    private float musY;
+    private float VelX;
+    private float VelY;
 
-    [SerializeField] private float musSenceX;
-    [SerializeField]private float musSenceY;
+    [SerializeField] private float mouseSenceX;
+    [SerializeField]private float mouseSenceY;
 
     private Transform pers;
 
-    private float camRot = 0;
+    private float camRotacion = 0;
 
     private void Start()
     {
@@ -22,15 +22,15 @@ public class Mouse : MonoBehaviour
 
     private void Update()
     {
-        musX = Input.GetAxis("Mouse X") * musSenceX * Time.deltaTime;
-        musY = Input.GetAxis("Mouse Y") * musSenceY * Time.deltaTime;
+        VelX = Input.GetAxis("Mouse X") * mouseSenceX * Time.deltaTime;
+        VelY = Input.GetAxis("Mouse Y") * mouseSenceY * Time.deltaTime;
 
-        camRot -= musY;
+        camRotacion -= VelY;
 
-        camRot = Mathf.Clamp(camRot, -90, 90);
+        camRotacion = Mathf.Clamp(camRotacion, -90, 90);
 
-        transform.localRotation = Quaternion.Euler(camRot, 0, 0);
+        transform.localRotation = Quaternion.Euler(camRotacion, 0, 0);
 
-        pers.Rotate(Vector3.up * musX);
+        pers.Rotate(Vector3.up * VelX);
     }
 }
