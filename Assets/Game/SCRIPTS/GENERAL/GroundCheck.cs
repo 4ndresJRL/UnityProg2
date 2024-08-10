@@ -15,7 +15,7 @@ public class GroundCheck : MonoBehaviour
     {
         if (IsGrounded())
         {
-            Debug.Log("Tocando el suelo");
+            
         }
     }
 
