@@ -1,16 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace WeaponSystem
 {
     public class Handgun : Weapon // : MonoBehaivour
     {
-
         public override void Fire()
         {
             if (ammo >= 1)
             {
+
                 Debug.Log($"Pistolita {weaponName} pium pium");
                 ammo--;
                 StopAllCoroutines();

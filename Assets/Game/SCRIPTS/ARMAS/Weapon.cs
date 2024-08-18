@@ -46,8 +46,8 @@ namespace WeaponSystem
 
         private void OnDrawGizmos()
         {
-            Gizmos.color = Color.red;
-            Gizmos.DrawRay(transform.position, transform.rotation * transform.forward * range);
+            //Gizmos.color = Color.red;
+            //Gizmos.DrawRay(transform.position, transform.rotation * transform.forward * range);
         }
 
     }

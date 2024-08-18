@@ -6,7 +6,6 @@ namespace WeaponSystem
 
     public class WeaponHandler : MonoBehaviour
     {
-
         [SerializeField] private Weapon currentWeapon; // Arma que est? equipada actualmente
         [SerializeField] private Weapon[] weapons = new Weapon[2]; // Inventario de armas
 
