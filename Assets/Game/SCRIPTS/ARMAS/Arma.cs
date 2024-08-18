@@ -25,6 +25,7 @@ public class Arma : MonoBehaviour
         {
             balas--;
             sitemaParticula.Play();
+            //El raycast se dispara desde la camara y devuelve unos valores si golpea algo dentro de la variable distancia
             if (Physics.Raycast(cam.position, cam.forward, out hit, distancia))
             {
                 Debug.Log(hit.transform.name);

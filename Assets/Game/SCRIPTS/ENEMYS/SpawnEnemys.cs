@@ -6,7 +6,9 @@ public class SpawnEnemys : MonoBehaviour
 {
     [SerializeField] GameObject Enemigos;
     [SerializeField] private float tiempo;
+    //genera puntos de spawn
     [SerializeField] private Transform[] spawn;
+    //genera el valor random
     private int spawnX;
     [SerializeField] private int radio;
     [SerializeField] LayerMask playerMask;

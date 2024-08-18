@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Se utilizo este debido a errores en el script original de Movement Controller
 public class Controller : MonoBehaviour
 {
     private CharacterController ctrl;

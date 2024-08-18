@@ -12,9 +12,9 @@ public class Balas : MonoBehaviour
     }
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.CompareTag("Player")  )
+        if (collision.CompareTag("Player"))
         {
-            Debug.Log("Curando");
+            Debug.Log("Más balas");
             bullets.balas += 10;
             Destroy(this.gameObject);
         }

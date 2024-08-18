@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Este script destruye el spawner y hace que se dehjen de instancear enemigos
 public class AutoDestrucción : MonoBehaviour
 {
     [SerializeField] private GameObject Spawner;

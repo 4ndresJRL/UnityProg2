@@ -13,6 +13,7 @@ public class PlayerDamage : MonoBehaviour
             life -= 5;
             if (life == 0) 
             {
+                //Recarga la escena si la vida es igual a 0
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
            
